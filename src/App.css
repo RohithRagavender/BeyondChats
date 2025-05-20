@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+body,
+html,
+#root {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #2c3e50; /* soft dark blue-grey */
+  background-color: #f9fafb; /* very light background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: headings bold with letter spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #34495e;
+}
+
+.chat-pattern {
+  position: relative;
+  z-index: 0;
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: 200px auto;
+  /* Use a transparent pattern over the gradient */
+background-image: 
+    url("../public/wallpaper.jpg"),
+}
+
+
+.chat-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* Overlay the gradient color */
+  background: inherit; /* makes the gradient from getChatStyle stay visible */
+  opacity: 0.6; /* control pattern visibility */
+  pointer-events: none;
+}
